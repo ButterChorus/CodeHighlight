@@ -60,6 +60,9 @@ const render = Component => new Promise<void>(
 
 initializeIcons("./fonts/");
 
+// hide spinner
+document.getElementById("loader").style.display = "none";
+
 Promise.all([
   render(App),
   Office.onReady().then(info => {

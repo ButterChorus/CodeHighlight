@@ -38,12 +38,39 @@
     .plain {
       background-color: rgba(255, 255, 255, 0);
     }
+    #loader {
+      position: relative;
+      top: 50%;
+      margin-top: -35px;
+      text-align: center;
+      color: #0078d4;
+      font-size: 12px;
+      font-family: 'Segoe UI';
+    }
+    .spinner {
+      margin: 0 auto;
+      margin-bottom: 8px;
+      border: 1.5px solid;
+      border-color: #0078d4 #c7e0f4 #c7e0f4;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      animation: spin 1.3s cubic-bezier(0.53, 0.21, 0.29, 0.67) infinite;
+    }
+    @keyframes spin {
+      0%   {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
   </style>
   <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 </head>
 
 <body>
   <div id="root"></div>
+  <div id="loader">
+    <div class="spinner"></div>
+    <div>Loading Page ...</div>
+  </div>
 </body>
 
 </html>
