@@ -7,7 +7,7 @@ const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 const webpack = require("webpack");
 
 const urlDev = "https://localhost:3000/";
-const urlProd = "https://ExtraKit.github.io/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProd = "https://purple-mushroom-03b8a5e10.1.azurestaticapps.net/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();
@@ -64,10 +64,6 @@ module.exports = async (env, options) => {
           test: /\.css$/,
           use: ["style-loader", "css-loader"],
         },
-        {
-          test: /node_modules\/@fluentui\/font-icons-mdl2\/fonts/,
-          use: ["file-loader"],
-        }
       ],
     },
     plugins: [
@@ -119,6 +115,11 @@ module.exports = async (env, options) => {
       },
       https: env.WEBPACK_BUILD || options.https !== undefined ? options.https : await getHttpsOptions(),
       port: process.env.npm_package_config_dev_server_port || 3000,
+    },
+    optimization: {
+      splitChunks: {
+        chunks: "all",
+      },
     },
   };
   return config;
