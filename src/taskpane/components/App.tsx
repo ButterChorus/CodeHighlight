@@ -17,7 +17,7 @@ import SettingsPanelHeader from "./SettingsPanelHeader";
 
 const environmentWarningMessage =
   "This page is not opened in a Micorsoft Office Word document." +
-  " Some features of add-in may not be availabel";
+  " Some features of add-in may not be available";
 
 const messageBarCloseDelay = 1000;
 
